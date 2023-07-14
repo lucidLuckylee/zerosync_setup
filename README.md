@@ -3,22 +3,22 @@ This repository includes information and scripts for running ZeroSync related be
 
 ## Prerequisites
 Before building the docker image you need to copy a github ssh key of an account that has access to the sandstorm-mirror repository or switch it out with the public sandstorm repository at https://github.com/andrewmilson/sandstorm (and remove/adjust the scripts).
-```
+```console
     # A command like this should usually copy your ssh key
     cp ~/.ssh/ed_25519 .
 ```
 WARNING: The image will be built using your PRIVATE SSH KEY. Giving away the image is equivalent to giving out your PRIVATE KEY! You may want to generate a new one for this purpose only and temporarily add it to your GitHub account.
 
 ## Usage
-```
+```console 
     # Build the docker image
     docker build --tag "zerosync" .
 
     # Start the container with shell access
-    docker start -it --name="zerosync" zerosync bash
+    docker run -it --name="zerosync" zerosync bash
 
     # If the script execution is removed from the built process you may
-    # run prove_sha256_stark_prime.sh to generate a proof
+    # run prove_sha256_stark_prime.sh in the docker container to generate a proof
     cd home
     chmod +x prove_sha256_stark_prime.sh
     ./prove_sha256_stark_prime.sh
