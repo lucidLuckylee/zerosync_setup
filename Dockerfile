@@ -25,6 +25,7 @@ RUN pip install ecdsa fastecdsa sympy cairo-lang==0.12.0
 # Intall Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
+RUN rustup toolchain install nightly
 
 WORKDIR /root/home
 # Clone repos
@@ -41,3 +42,8 @@ RUN mkdir playground && cd playground && git clone git@github.com:andrewmilson/m
 
 RUN git clone git@github.com:ZeroSync/sha256_cairo_goldilocks.git
 RUN git clone git@github.com:ZeroSync/ZeroSync.git
+
+COPY prove_sha256_stark_prime.sh .
+RUN chmod +x prove_sha256_stark_prime.sh
+
+RUN ./prove_sha256_stark_prime.sh
