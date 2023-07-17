@@ -46,4 +46,4 @@ RUN git clone git@github.com:ZeroSync/ZeroSync.git
 COPY prove_sha256_stark_prime.sh .
 RUN chmod +x prove_sha256_stark_prime.sh
 
-RUN ./prove_sha256_stark_prime.sh
+# RUN ./prove_sha256_stark_prime.sh
