@@ -1,4 +1,4 @@
-cd sha256_cairo_goldilocks
+cd sha256_cairo_goldilocks/sha_256_stark_prime
 TARGET="target"
 mkdir ${TARGET}
 
