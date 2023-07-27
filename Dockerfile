@@ -42,7 +42,7 @@ RUN cd sandstorm-mirror && cargo +nightly build -r -F parallel,asm
 
 RUN git clone git@github.com:ZeroSync/sha256_cairo_goldilocks.git
 RUN git clone git@github.com:ZeroSync/ZeroSync.git
-RUN cd zerosync && git checkout integrate_sandstorm
+RUN cd ZeroSync && git checkout integrate_sandstorm
 
 COPY prove_sha256_stark_prime.sh .
 RUN chmod +x prove_sha256_stark_prime.sh
