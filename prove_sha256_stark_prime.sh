@@ -1,4 +1,4 @@
-cd sha256_cairo_goldilocks/sha_256_stark_prime
+cd sha256_cairo_goldilocks/sha256_stark_prime
 TARGET="target"
 mkdir ${TARGET}
 
@@ -6,7 +6,7 @@ mkdir ${TARGET}
 cairo-compile main.cairo --output=${TARGET}/main_compiled.json --proof_mode
 # Start the runner to generate the air inputs
 cairo-run --program=${TARGET}/main_compiled.json \
-	--layout=starknet --print_output \
+	--layout=recursive --print_output \
 	--trace_file ${TARGET}/trace.bin \
 	--memory_file ${TARGET}/memory.bin \
 	--air_private_input ${TARGET}/air-private-input.json \

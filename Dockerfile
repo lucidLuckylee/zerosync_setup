@@ -36,9 +36,9 @@ COPY id_ed25519_docker /root/.ssh/id_ed25519
 RUN chmod 700 /root/.ssh/id_ed25519
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
+RUN git clone git@github.com:andrewmilson/ministark.git
 RUN git clone git@github.com:andrewmilson/sandstorm-mirror.git
-# Ministark in the playground directory as this is how it is expected by the sandstorm-mirror
-RUN mkdir playground && cd playground && git clone git@github.com:andrewmilson/ministark.git
+RUN cd sandstorm-mirror && cargo +nightly build -r -F parallel,asm
 
 RUN git clone git@github.com:ZeroSync/sha256_cairo_goldilocks.git
 RUN git clone git@github.com:ZeroSync/ZeroSync.git
