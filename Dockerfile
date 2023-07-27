@@ -36,7 +36,7 @@ COPY id_ed25519_docker /root/.ssh/id_ed25519
 RUN chmod 700 /root/.ssh/id_ed25519
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
-RUN git clone git@github.com:andrewmilson/ministark.git
+RUN git clone git@github.com:andrewmilson/ministark-mirror.git
 RUN git clone git@github.com:andrewmilson/sandstorm-mirror.git
 RUN cd sandstorm-mirror && cargo +nightly build -r -F parallel,asm
 
